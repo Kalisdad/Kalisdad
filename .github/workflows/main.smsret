@@ -1,0 +1,37 @@
+
+result.stdoutresult.returncode
+
+I apologize for any confusion caused, but the code you provided using `from sms import Sms` to read SMS messages from an Android phone connected via USB is not a valid Python library or approach. I apologize for the incorrect information. `subprocess` 
+
+
+
+
+import subprocess
+
+# Run adb command to retrieve SMS messages
+
+result = subprocess.run(['adb', 'shell', 'content', 'query', '--uri', 'content://sms'], capture_output=True, text=True)
+
+# Check if the command executed successfully
+
+if result.returncode == 0:
+
+    output = result.stdout
+
+    # Parse and print message details
+
+    messages = output.strip().split('\n')
+
+    for message in messages:
+
+        print(message)
+
+else:
+
+    print("Failed to retrieve SMS messages.")
+
+```
+
+To use this code, you'll need to have the `adb` tool installed on your computer and the Android device connected via USB with USB debugging enabled. The code runs the `adb` command to query SMS messages and captures the output. It then parses and prints the message details.
+
+Please note that using the `adb` command-line tool may require additional setup and configuration, and it's important to ensure that you're using it in compliance with any applicable terms of service or policies.
